@@ -12,5 +12,7 @@ Nodo* nodo_crear(int dato) {
 }
 
 void nodo_destruir(Nodo* nodo) {
-    if(nodo != NULL) free(nodo);
+    if(nodo != NULL) {
+        free(nodo);
+    } 
 }

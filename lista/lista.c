@@ -6,7 +6,7 @@
 
 Lista* lista_crear() {
     Lista *lista = NULL;
-    l = (Lista*)malloc(sizeof(Lista));
+    lista = (Lista*)malloc(sizeof(Lista));
 
     lista->head = NULL;
     lista->tail = NULL;

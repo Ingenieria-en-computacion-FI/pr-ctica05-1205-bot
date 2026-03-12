@@ -1,5 +1,6 @@
 #ifndef LISTA_H
 #define LISTA_H
+#include <stdbool.h>
 
 #include "../nodo/nodo.h"
 
@@ -10,7 +11,7 @@ typedef struct {
 
 Lista* lista_crear();
 
-int lista_vacia(Lista* lista);
+bool lista_vacia(Lista* lista);
 
 void lista_insertar_head(Lista* lista, int dato);
 

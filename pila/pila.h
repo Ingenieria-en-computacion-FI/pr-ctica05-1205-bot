@@ -3,7 +3,9 @@
 
 #include "../lista/lista.h"
 
-typedef Lista Pila;
+typedef struct {
+    Lista *lista; // La Pila TIENE una lista dentro
+} Pila;
 
 Pila* pila_crear();
 

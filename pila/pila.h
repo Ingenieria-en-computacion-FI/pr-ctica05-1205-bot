@@ -2,6 +2,7 @@
 #define PILA_H
 
 #include "../lista/lista.h"
+#include <stdbool.h>
 
 typedef struct {
     Lista *lista; // La Pila TIENE una lista dentro
@@ -9,7 +10,7 @@ typedef struct {
 
 Pila* pila_crear();
 
-int pila_vacia(Pila* pila);
+bool pila_vacia(Pila* pila);
 
 /*
 TODO

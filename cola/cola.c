@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "cola.h"
+#include "../lista/lista.h"
 
 
 Cola* cola_crear() {

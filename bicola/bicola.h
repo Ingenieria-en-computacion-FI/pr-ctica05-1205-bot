@@ -7,15 +7,21 @@
 
 typedef Lista Bicola;
 
-Bicola* cola_crear();
+Bicola* bicola_crear();
 
 bool bicola_vacia(Cola *c);
 
 void bicola_enqueue_head(Cola *c, int dato);
 
-int bicola_dequeue_head(Cola *c);
+void bicola_enqueue_tail(Cola *c, int dato);
 
-int bicola_dequeue_tail(Cola *c);
+void bicola_denqueue_head(Cola *c, int dato);
+
+void bicola_denqueue_tail(Cola *c, int dato);
+
+int bicola_head(Cola *c);
+
+int bicola_tail(Cola *c);
 
 void bicola_destruir(Cola *c);
 

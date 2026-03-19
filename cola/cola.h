@@ -28,6 +28,8 @@ regresar frente (head)
 */
 int cola_frente(Cola* cola);
 
+int cola_fin(Cola* cola);
+
 void cola_destruir(Cola* cola);
 
 #endif

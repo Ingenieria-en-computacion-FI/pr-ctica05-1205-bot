@@ -6,11 +6,7 @@
 
 
 Cola* cola_crear() {
-    Cola* cola = (Cola*)malloc(sizeof(Cola));
-    if(cola != NULL) {
-        cola->lista = lista_crear();
-    }   
-    return cola;
+    return lista_crear(); 
 }
 
 bool cola_vacia(Cola* cola) {
@@ -18,20 +14,19 @@ bool cola_vacia(Cola* cola) {
 }
 
 void cola_enqueue(Cola* cola, int dato) {
-    return lista_insertar_tail(cola-lista, dato);
+    lista_insertar_tail(cola, dato);
 }
 
 int cola_dequeue(Cola* cola) {
-    return lista_eliminar_head(cola->lista);
+    return lista_eliminar_head(cola);
 }
 
 int cola_frente(Cola* cola) {
     if(cola_vacia(cola)) return -1;
     
-    return cola->lista->head->dato;
+    return cola->head->dato;
 }
 
 void cola_destruir(Cola* cola) {
-    lista_destruir(cola->lista);
-    free(cola);
+    if(cola != NULL) lista_destruir(cola);
 }

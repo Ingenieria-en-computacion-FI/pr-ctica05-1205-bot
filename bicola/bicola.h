@@ -5,9 +5,7 @@
 #include "../cola/cola.h"
 #include <stdbool.h>
 
-typedef struct {
-    Cola *c;
-} Bicola;
+typedef Lista Bicola;
 
 Bicola* cola_crear();
 

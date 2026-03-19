@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "cola.h"
 #include "../lista/lista.h"
 
@@ -13,12 +14,11 @@ Cola* cola_crear() {
 }
 
 bool cola_vacia(Cola* cola) {
-    if(cola == NULL) return true;
-    return lista_vacia(cola->lista);
+    return lista_vacia(cola);
 }
 
 void cola_enqueue(Cola* cola, int dato) {
-    return lista_insertar_tail(cola->lista, dato);
+    return lista_insertar_tail(cola-lista, dato);
 }
 
 int cola_dequeue(Cola* cola) {

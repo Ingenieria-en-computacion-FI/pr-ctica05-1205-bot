@@ -4,9 +4,7 @@
 #include "../lista/lista.h"
 #include <stdbool.h>
 
-typedef struct {
-    Lista *lista; // La Pila TIENE una lista dentro
-} Pila;
+typedef Lista Pila;
 
 Pila* pila_crear();
 

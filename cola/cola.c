@@ -27,6 +27,12 @@ int cola_frente(Cola* cola) {
     return cola->head->dato;
 }
 
+int cola_fin(Cola* cola) {
+    if(cola_vacia(cola)) return -1;
+    
+    return cola->tail->dato;
+}
+
 void cola_destruir(Cola* cola) {
     if(cola != NULL) lista_destruir(cola);
 }

@@ -4,9 +4,7 @@
 #include "../lista/lista.h"
 #include <stdbool.h>
 
-typedef struct {
-    Lista* lista;
-} Cola;
+typedef Lista Cola;
 
 Cola* cola_crear();
 

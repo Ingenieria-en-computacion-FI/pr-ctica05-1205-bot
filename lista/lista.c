@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 #include "lista.h"
+#include "nodo.h"
 
 Lista* lista_crear() {
     Lista *lista = NULL;
@@ -14,56 +15,47 @@ Lista* lista_crear() {
 }
 
 bool lista_vacia(Lista *lista) {
-    if(lista->head == NULL) return true;
-    return false;
+    return lista->head == NULL;
 }
 
 void lista_insertar_head(Lista* lista, int dato) {
-    Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
-    nuevo->dato = dato;
-    nuevo->siguiente = NULL;
+    nodo_crear(dato);
 
     if(lista_vacia(lista)) {
-        lista->head = nuevo;
-        lista->tail = nuevo;
+        lista->head = nuevoNodo;
+        lista->tail = nuevoNodo;
     } else {
-        nuevo->siguiente = lista->head;
-        lista->head = nuevo;
+        nuevoNodo->siguiente = lista->head;
+        lista->head = nuevoNodo;
     }
 }
 
 void lista_insertar_tail(Lista* lista, int dato) {
-    Nodo *nuevo =(Nodo*)malloc(sizeof(Nodo));
-    nuevo->dato = dato;
-    nuevo->siguiente = NULL;
+    nodo_crear(dato);
 
      if(lista_vacia(lista)) {
-        lista->head = nuevo;
-        lista->tail = nuevo;
+        lista->head = nuevoNodo;
+        lista->tail = nuevoNodo;
     } else {
-        lista->tail->siguiente = nuevo;
-        lista->tail = nuevo;
+        lista->tail->siguiente = nuevoNodo;
+        lista->tail = nuevoNodo;
     }
 }
 
 int lista_eliminar_head(Lista* lista) {
-    if(lista_vacia(lista)) {
-        printf("Errror");
-        return -1;
-    }
+    if(lista_vacia(lista)) printf("Lista vacia");
+
     Nodo *aux_head = lista->head;
     int dato = aux_head->dato;//aqui no nos pasan dato pero lo necesitamos para devolverlo al final de la función
     lista->head = aux_head->siguiente;
+
     if(lista->head == NULL) lista->tail = NULL;// si solo habia un nodo, tail queda en NULL
     free(aux_head);
     return dato;
 }
 
 int lista_eliminar_tail(Lista* lista) {
-    if(lista_vacia(lista)) {
-        printf("Errror");
-        return -1;
-    }
+    if(lista_vacia(lista)) printf("Lista vacia");
 
     Nodo *aux_head = lista->head;
     int dato; 
@@ -71,8 +63,7 @@ int lista_eliminar_tail(Lista* lista) {
     if(lista->head == lista->tail) {
         dato = aux_head->dato;
         free(aux_head);
-        lista->head = NULL;
-        lista->tail = NULL;
+        lista->head = lista->tail = NULL;
         return dato;
     }
 

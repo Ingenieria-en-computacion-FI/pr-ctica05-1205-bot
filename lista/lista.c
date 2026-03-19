@@ -34,11 +34,9 @@ void lista_insertar_tail(Lista* lista, int dato) {
     nodo_crear(dato);
 
      if(lista_vacia(lista)) {
-        lista->head = nuevoNodo;
-        lista->tail = nuevoNodo;
+        lista->head = lista->tail = nuevoNodo;
     } else {
-        lista->tail->siguiente = nuevoNodo;
-        lista->tail = nuevoNodo;
+        lista->tail->siguiente = lista->tail = nuevoNodo;
     }
 }
 

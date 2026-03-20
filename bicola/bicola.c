@@ -13,22 +13,39 @@ bool bicola_vacia(Bicola *c) {
 }
 
 void bicola_enqueue_head(Bicola *c, int dato) {
-    llista_insertar_head(c);
+    lista_insertar_head(c, dato);
 }
 
 void bicola_enqueue_tail(Bicola *c, int dato) {
-    lista_insertar_tail(c);
+    lista_insertar_tail(c, dato);
 }
 
-void bicola_denqueue_head(Bicola *c, int dato) {
-    if(cola_vacia(c)) printf("Cola vacia");
-    Nodo aux_head = 
+int bicola_denqueue_head(Bicola *c) {
+    return lista_eliminar_head(c);
 }
 
-void bicola_denqueue_tail(Bicola *c, int dato);
+int bicola_denqueue_tail(Bicola *c) {
+    return lista_eliminar_tail(c);
+}
 
-int bicola_head(Bicola *c);
+int bicola_head(Bicola *c) {
+    if(bicola_vacia(c)) {
+        printf("La bicola esta vacia");
+        return -1;
+    }
 
-int bicola_tail(Bicola *c);
+    return c->head->dato;
+}
 
-void bicola_destruir(Bicola *c);
+int bicola_tail(Bicola *c) {
+    if(bicola_vacia(c)) {
+        printf("La bicola esta vacia");
+        return -1;
+    }
+
+    return c->tail->dato;
+}
+
+void bicola_destruir(Bicola *c) {
+    lista_destruir(c);
+}

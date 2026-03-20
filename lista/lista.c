@@ -6,8 +6,7 @@
 #include "nodo.h"
 
 Lista* lista_crear() {
-    Lista *lista = NULL;
-    lista = (Lista*)malloc(sizeof(Lista));
+    Lista *lista = (Lista*)malloc(sizeof(Lista));
 
     lista->head = lista->tail = NULL;
 
@@ -19,7 +18,7 @@ bool lista_vacia(Lista *lista) {
 }
 
 void lista_insertar_head(Lista* lista, int dato) {
-    nodo_crear(dato);
+    Nodo *nuevoNodo = nodo_crear(dato);
 
     if(lista_vacia(lista)) {
         lista->head = nuevoNodo;
@@ -31,36 +30,43 @@ void lista_insertar_head(Lista* lista, int dato) {
 }
 
 void lista_insertar_tail(Lista* lista, int dato) {
-    nodo_crear(dato);
+    Nodo *nuevoNodo = nodo_crear(dato);
 
      if(lista_vacia(lista)) {
         lista->head = lista->tail = nuevoNodo;
     } else {
-        lista->tail->siguiente = lista->tail = nuevoNodo;
+        lista->tail->siguiente = nuevoNodo;
+        lista->tail = nuevoNodo;
     }
 }
 
 int lista_eliminar_head(Lista* lista) {
-    if(lista_vacia(lista)) printf("Lista vacia");
+    if(lista_vacia(lista)) {
+        printf("La lista esta vacia");
+        return -1;//para salir de la funcion, sino se ejecutaria aunque este vacia
+    }
 
     Nodo *aux_head = lista->head;
     int dato = aux_head->dato;//aqui no nos pasan dato pero lo necesitamos para devolverlo al final de la función
     lista->head = aux_head->siguiente;
 
     if(lista->head == NULL) lista->tail = NULL;// si solo habia un nodo, tail queda en NULL
-    free(aux_head);
+    nodo_destruir(aux_head);
     return dato;
 }
 
 int lista_eliminar_tail(Lista* lista) {
-    if(lista_vacia(lista)) printf("Lista vacia");
+    if(lista_vacia(lista)) {
+        printf("La lista esta vacia");
+        return -1;
+    }
 
     Nodo *aux_head = lista->head;
     int dato; 
 
     if(lista->head == lista->tail) {
         dato = aux_head->dato;
-        free(aux_head);
+        nodo_destruir(aux_head);
         lista->head = lista->tail = NULL;
         return dato;
     }
@@ -96,4 +102,5 @@ void lista_destruir(Lista* lista) {
     }
 
     free(lista);
-}
+}//fin :)
+

@@ -34,5 +34,5 @@ int cola_fin(Cola* cola) {
 }
 
 void cola_destruir(Cola* cola) {
-    if(cola != NULL) lista_destruir(cola);
-}
+    lista_destruir(cola);
+} 

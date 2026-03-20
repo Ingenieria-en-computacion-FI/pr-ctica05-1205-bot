@@ -20,11 +20,11 @@ void bicola_enqueue_tail(Bicola *c, int dato) {
     lista_insertar_tail(c, dato);
 }
 
-int bicola_denqueue_head(Bicola *c, int dato) {
+int bicola_denqueue_head(Bicola *c) {
     return lista_eliminar_head(c);
 }
 
-int bicola_denqueue_tail(Bicola *c, int dato) {
+int bicola_denqueue_tail(Bicola *c) {
     return lista_eliminar_tail(c);
 }
 

@@ -10,14 +10,14 @@ ColaCircular* cola_circular_crear();
 
 bool cola_circular_vacia(ColaCircular* cc);
 
-void cola_enqueue(ColaCircular* cc, int dato);
+void cola_circular_enqueue(ColaCircular* cc, int dato);
 
-int cola_dequeue(ColaCircular* cc);
+int cola_circular_dequeue(ColaCircular* cc);
 
-int cola_frente(ColaCircular* cc);
+int cola_circular_frente(ColaCircular* cc);
 
-int cola_fin(ColaCircular* cc);
+int cola_circular_fin(ColaCircular* cc);
 
-void cola_destruir(ColaCircular* cc);
+void cola_circular_destruir(ColaCircular* cc);
 
 #endif
